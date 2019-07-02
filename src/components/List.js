@@ -1,6 +1,7 @@
 import {css} from '@emotion/core';
-import {useMemo} from 'react';
+import {useMemo, useState, useEffect} from 'react';
 import {values, mapObjIndexed} from 'ramda';
+import throttle from 'lodash.throttle';
 
 const styles = css`
   display: block;
@@ -53,10 +54,41 @@ export default ({
 }) => {
   const deps = [heading, subheading, cta];
   const displayHeading = useMemo(() => !!deps.filter(Boolean).length, deps);
+  const [renderedItems, addRenderedItems] = useState(items.slice(0, 19));
   const [className, children] = useMemo(
-    () => (items && items.length ? ['items', items] : ['no-items', noItems]),
-    [items, noItems],
+    () =>
+      renderedItems && renderedItems.length
+        ? ['items', renderedItems]
+        : ['no-items', noItems],
+    [renderedItems, noItems],
   );
+
+  const displayNextItems = throttle(() => {
+    if (renderedItems.length < items.length) {
+      addRenderedItems(
+        items.slice(renderedItems.lenghth + 1, renderedItems.length + 20),
+      );
+    }
+  }, 1000);
+
+  let lastScrolled = 0;
+  const onScroll = e => {
+    const scrolled = window.innerHeight + window.pageYOffset;
+
+    if (
+      scrolled >= document.body.scrollHeight - 800 &&
+      scrolled > lastScrolled
+    ) {
+      displayNextItems();
+    }
+
+    lastScrolled = scrolled;
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  });
 
   const responsiveGridStyles = useMemo(
     () =>
