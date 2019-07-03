@@ -65,9 +65,10 @@ export default ({
 
   const displayNextItems = throttle(() => {
     if (renderedItems.length < items.length) {
-      addRenderedItems(
-        items.slice(renderedItems.lenghth + 1, renderedItems.length + 20),
-      );
+      addRenderedItems([
+        ...renderedItems,
+        ...items.slice(renderedItems.lenghth + 1, renderedItems.length + 20),
+      ]);
     }
   }, 1000);
 
@@ -76,7 +77,7 @@ export default ({
     const scrolled = window.innerHeight + window.pageYOffset;
 
     if (
-      scrolled >= document.body.scrollHeight - 800 &&
+      scrolled >= document.body.scrollHeight - 1000 &&
       scrolled > lastScrolled
     ) {
       displayNextItems();
