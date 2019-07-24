@@ -9,7 +9,7 @@ module.exports = ({title, city, date, to, avatar}) => {
         <Box width='100%'>
           <Item
             style={{
-              padding: '8px',
+              padding: '16px 8px',
               backgroundColor: '#fff',
               boxShadow: 'rgb(204, 204, 204) 2px 2px 0px 2px',
               borderRadius: '5px',

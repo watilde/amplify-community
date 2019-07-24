@@ -30,10 +30,10 @@ module.exports = ({week, year, events, posts}) => {
         }
       `}
     >
-      <Item style={{paddingTop: '16px'}}>
+      <Item style={{paddingTop: '32px'}}>
         <Item
           style={{
-            padding: '36px 8px 36px 8px',
+            padding: '48px 16px 48px 16px',
             backgroundColor: 'rgb(255, 153, 0)',
             borderRadius: '5px',
             boxShadow: 'rgb(204, 204, 204) 2px 2px 0px 2px',
@@ -50,7 +50,7 @@ module.exports = ({week, year, events, posts}) => {
                 Amplify Newsletter
               </Span>
             </Item>
-            <Item align='center'>
+            <Item align='center' style={{paddingTop: '8px'}}>
               <Span fontSize={20} lineHeight={30} color='#fff'>
                 {`Week ${week} of ${year}`}
               </Span>
@@ -79,7 +79,7 @@ module.exports = ({week, year, events, posts}) => {
           </Box>
         </Item>
       </Item>
-      <Item align='left' style={{padding: '32px 8px 0px 8px'}}>
+      <Item align='left' style={{padding: '48px 8px 16px 8px'}}>
         <Span fontSize={18} lineHeight={27} fontWeight={100}>
           {`Below is the weekly roundup of the articles, podcasts, and videos that are relevant to developers who utilize the AWS platform for building great mobile and modern web applications.`}
         </Span>
@@ -121,7 +121,7 @@ module.exports = ({week, year, events, posts}) => {
               <Item
                 align='left'
                 style={{
-                  padding: '12px 8px 14px 8px',
+                  padding: '24px 8px 14px 8px',
                 }}
               >
                 <Span fontWeight={700} fontSize={22}>
@@ -141,7 +141,7 @@ module.exports = ({week, year, events, posts}) => {
       </Item>
 
       <Box align='center'>
-        <Item style={{maxWidth: '600px', padding: '16px'}}>
+        <Item style={{maxWidth: '600px', padding: '32px 16px'}}>
           <Span fontSize={12} lineHeight={18} color='#828282'>
             The Amplify Community is supported by Amazon Web Services © 2019,
             Amazon Web Services, Inc. or its affiliates. All rights reserved.
@@ -154,7 +154,7 @@ module.exports = ({week, year, events, posts}) => {
         <Item
           style={{
             maxWidth: '600px',
-            padding: '16px',
+            padding: '32px 16px',
             borderTop: '1px solid #aaa',
           }}
         >
@@ -162,7 +162,7 @@ module.exports = ({week, year, events, posts}) => {
             textDecoration='none'
             href='https://amplify.aws/community/newsletter/unsubscribe'
           >
-            <Span color='#4c5f88'>Unsubscribe from this newsletter</Span>
+            <Span color='#4c5f88'>unsubscribe from this newsletter</Span>
           </A>
         </Item>
       </Box>

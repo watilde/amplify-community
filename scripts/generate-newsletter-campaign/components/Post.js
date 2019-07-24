@@ -13,7 +13,7 @@ module.exports = ({title, description, href}) => {
         <Box width='100%'>
           <Item
             style={{
-              padding: '16px',
+              padding: '48px 32px',
               backgroundColor: 'rgb(75, 97, 137)',
               borderRadius: '5px',
               boxShadow: 'rgb(204, 204, 204) 2px 2px 0px 2px',
