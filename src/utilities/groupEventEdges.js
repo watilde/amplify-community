@@ -1,4 +1,5 @@
 import {reduce, assoc, invertObj} from 'ramda';
+import moment from 'moment';
 import * as extract from './extract';
 
 export const monthNameByIndex = [
@@ -27,5 +28,6 @@ export default reduce((accumulator, current) => {
   const monthIndex = date.getMonth();
   const month = monthNameByIndex[monthIndex];
   const key = `${month} ${year}`;
+  current.node.fields.date = moment(stringifiedDate).format(`MMMM D, YYYY`);
   return assoc(key, [...(accumulator[key] || []), current], accumulator);
 }, {});

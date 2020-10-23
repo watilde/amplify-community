@@ -1,4 +1,5 @@
 import {graphql, Link} from 'gatsby';
+import moment from 'moment';
 import {track, extract, mapNodeToProps} from '~/utilities';
 import Img from 'gatsby-image';
 import {Text, Meta, Layout, Nav, Button} from '~/components';
@@ -182,7 +183,7 @@ export default props => {
           <div className='details'>
             <Text h2>{title}</Text>
             <div className='logistics'>
-              <Text h4 children={date} />
+              <Text h4 children={moment(date).format(`MMMM D, YYYY`)} />
               <Text h4 children=' in ' />
               <Text h4 children={join(', ', [city, country])} />
             </div>

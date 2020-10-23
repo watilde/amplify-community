@@ -71,7 +71,7 @@ export const SharedBetweenPostsAndEventsFragment = graphql`
     fields {
       key
       slug
-      date(formatString: "MMMM D, YYYY")
+      date
     }
     frontmatter {
       href
